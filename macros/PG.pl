@@ -49,6 +49,7 @@ sub DOCUMENT {
 	$ANSWER_PREFIX         		= $PG->{ANSWER_PREFIX};
 	$QUIZ_PREFIX           		= $PG->{QUIZ_PREFIX};
 	$showPartialCorrectAnswers 	= $PG->{flags}->{showPartialCorrectAnswers};
+	$noGradeFeedback	 	= $PG->{flags}->{noGradeFeedback}; # 4/4/17 Gets initial value for flag for hiding % feedback in 										   # problem output summary
 	$showHint                   = $PG->{flags}->{showHint};
 	$solutionExists        		= $PG->{flags}->{solutionExists};
 	$hintExists            		= $PG->{flags}->{hintExists};
@@ -332,6 +333,8 @@ sub ENDDOCUMENT {
 	# gather up PG_FLAGS elements
 
     $PG->{flags}->{showPartialCorrectAnswers}      = defined($showPartialCorrectAnswers)?  $showPartialCorrectAnswers : 1 ;
+	# 4/4/17 saves current problem file for value from  value for flag for hiding % feedback in problem output summary
+	$PG->{flags}->{noGradeFeedback}      	       = defined($noGradeFeedback)?  $noGradeFeedback : 0 ; 
 	$PG->{flags}->{recordSubmittedAnswers}         = defined($recordSubmittedAnswers)?     $recordSubmittedAnswers    : 1 ;
 	$PG->{flags}->{refreshCachedImages}            = defined($refreshCachedImages)?        $refreshCachedImages       : 0 ;	
 	$PG->{flags}->{hintExists}                     = defined($hintExists)?                 $hintExists                : 0 ;

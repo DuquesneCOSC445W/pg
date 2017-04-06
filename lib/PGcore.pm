@@ -118,6 +118,7 @@ sub initialize {
     $self->{PG_loadMacros}        = new PGloadfiles($self->{envir});
 	$self->{flags} = {
 		showpartialCorrectAnswers => 1,
+		noGradeFeedback		  => 0, # 4/4/17 Default value for flag for hiding % feedback in problem output summary
 		showHint                  => 1,
 		hintExists 				  => 0,
 		showHintLimit             => 0,
